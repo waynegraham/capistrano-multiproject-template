@@ -22,8 +22,8 @@ can type:
 
 ## TODO
 
-* [] Section on adding recipes
-* [] Section on adding stages
-* [] Section on adding projects
-* [] Section on adding templates
+* [ ] Section on adding recipes
+* [ ] Section on adding stages
+* [ ] Section on adding projects
+* [ ] Section on adding templates
 
