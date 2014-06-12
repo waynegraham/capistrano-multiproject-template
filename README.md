@@ -20,7 +20,6 @@ $ cd projects
 $ git clone https://github.com/waynegraham/capistrano-multiproject-template.git omeka_deployments
 $ cd omeka_deployments
 $ bundle install
-
 ```
 
 ## Configuration
