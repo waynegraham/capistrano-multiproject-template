@@ -44,6 +44,8 @@ importantly tells capistrano what server to log in to to deploy the
 code.
 
 ```ruby
+# config/deploy/stages/production.rb
+
 server 'your-server.edu', :app, :web, :db, :primary => true
 
 set :user, 'user-that-can-write-to-server-destination'
@@ -63,6 +65,8 @@ hash of users to pre-populate the site with.
 #### Example
 
 ```ruby
+# config/deploy/stages/el2000.rb
+#
 # Instructor: Thomas Jefferson (tjeff@virginia.edu)
 #
 # Fall 2014
