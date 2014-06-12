@@ -1,0 +1,5 @@
+load "recipes/apache_configs"
+load "recipes/notifications"
+load "recipes/omeka"
+load "recipes/omeka_defaults"
+load "recipes/set_up_omeka"
