@@ -1,0 +1,49 @@
+#! /usr/bin/env ruby
+
+require 'thor'
+
+class Deplinator < Thor
+
+  desc "update STAGE [TASK]", "Runs a [TASK] for all projects to a particular STAGE. Defaults to 'deploy' task."
+  def update(stage, task = nil)
+   tr = TaskRunner.new(stage, task)
+   tr.mass_deploy
+  end
+
+end
+
+class TaskRunner
+  attr_accessor :projects, :stages, :stage
+
+  def initialize(stage, task = nil)
+    @projects = read_options('projects')
+    @stages   = read_options('stages')
+    @stage    = stage
+    @task     = task
+  end
+
+  def check_stage
+    @stages.include? @stage
+  end
+
+  def mass_deploy
+    raise RuntimeError, "I don't know about that stage '#{@stage}'. Better check your typing skillz..." unless check_stage
+
+    @projects.each do |project|
+      `cap #{stage} #{project} #{@task}`
+    end
+  end
+
+  private
+  def read_options(dir)
+    vals = Array.new
+    Dir.glob("config/deploy/#{dir}/*.rb").each do |file|
+      vals.push(File.basename(file, '.rb'))
+    end
+    vals
+  end
+
+end
+
+
+Deplinator.start(ARGV)
