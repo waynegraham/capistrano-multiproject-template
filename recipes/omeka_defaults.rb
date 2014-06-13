@@ -7,7 +7,7 @@ set :project_roles, %w(app db web)
 set :deploy_to, "/usr/local/projects/#{application}"
 
 default_run_options[:pty] = true
-#set :user, 'sds-deployer'
+#set :user, '' # user with permission to write to the server
 set :deploy_via, :remote_cache
 set :runner, :user
 set :run_method, :run
