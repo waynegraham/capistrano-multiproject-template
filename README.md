@@ -270,6 +270,7 @@ The key's randomart image is:
 Once you've generate the keys, you can copy the public key to the server with `ssh-copy-id`
  (replace 'remote-server' with your servername or IP).
 
+
 ```shell
 $ ssh-copy-id -i ~/.ssh/id_rsa.pub remote-server
 remote-server$ password:
@@ -279,6 +280,14 @@ Now try logging into the machine, with "ssh 'remote-host'", and check in:
 
 to make sure we haven't added extra keys that you weren't expecting.
 ```
+
+**Note:** You may need to install `ssh-copy-id`. It's available in
+through Homebrew on OS X. If you don't have it, try something like this:
+
+```shell
+cat ~/.ssh/id_rsa.pub | ssh user@123.45.67.89 "cat >> ~/.ssh/authorized_keys"
+```
+
 
 You should now be able to log on the remote server without needing to
 type you credentials as your private key on your computer authenticates
