@@ -267,23 +267,27 @@ The key's randomart image is:
 +-----------------+
 ```
 
-Once you've generate the keys, you can copy the public key to the server.
+Once you've generate the keys, you can copy the public key to the server with `ssh-copy-id`
+ (replace 'remote-server' with your servername or IP).
 
 ```shell
-$ scp .ssh/id_rsa.pub user@server:~/
-```
+$ ssh-copy-id -i ~/.ssh/id_rsa.pub remote-server
+remote-server$ password:
+Now try logging into the machine, with "ssh 'remote-host'", and check in:
 
-Then log on to the server and add the key to the
-`~/.ssh/authorized_keys` files:
+.ssh/authorized_keys
 
-```shell
-$ ssh user@server
-server$ cat id_rsa.pub >> .ssh/authorized_keys
+to make sure we haven't added extra keys that you weren't expecting.
 ```
 
 You should now be able to log on the remote server without needing to
 type you credentials as your private key on your computer authenticates
 with the public key on the server.
+
+```shell
+$ ssh remote-server
+Last login: Fri Jun 13 13:22:33 2014 from 192.168.1.101
+```
 
 ### Creating a New Instance
 
