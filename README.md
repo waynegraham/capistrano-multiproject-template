@@ -379,7 +379,5 @@ See [LICENCSE](LICENSE) file.
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
-
-# Contributors
-[Contributors](https://github.com/waynegraham/capistrano-multiproject-template/graphs/contributors) to the project.
+6. Get lists on the list of [contributors](https://github.com/waynegraham/capistrano-multiproject-template/graphs/contributors).
 
